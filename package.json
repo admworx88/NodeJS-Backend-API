@@ -1,0 +1,31 @@
+{
+  "name": "crudapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon server/server.js -w server",
+    "createdb": "npx nodemon server/createdb.js -w createdb",
+    "migrate-make": "knex migrate:make create_user_table --knexfile db_migration/knexfile.js",
+    "migrate-latest": "knex migrate:latest --knexfile db_migration/knexfile.js",
+    "seed-data": "knex seed:make insert-user --knexfile db_migration/knexfile.js",
+    "seed-run": "knex seed:run --knexfile db_migration/knexfile.js",
+    "test": "jest -- db.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "knex": "^2.2.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3",
+    "nodemon": "^2.0.19",
+    "supertest": "^6.2.4"
+  },
+  "jest": {
+    "verbose": true
+  }
+}
